@@ -1,0 +1,17 @@
+/home/ubuntu/miniforge3/envs/gfm/lib/python3.11/site-packages/sdm/relational/join.py:73: RuntimeWarning: Falling back to a CPU-based join because cuDF is not installed. Install cuDF to enable faster CUDA-based joins without device synchronization. This warning will be suppressed for the remainder of this process.
+  warn_once(
+{'num_hops': 1, 'fanout': 5, 'num_estimators': 8, 'log_loss': 0.8461667895317078, 'accuracy': 0.6883485822991213, 'macro_auc': 0.9301938009690325, 'seconds': 12}
+{'num_hops': 1, 'fanout': 5, 'num_estimators': 32, 'log_loss': 0.8430818796157837, 'accuracy': 0.6895515898179183, 'macro_auc': 0.9310494830649916, 'seconds': 42}
+{'num_hops': 2, 'fanout': 5, 'num_estimators': 8, 'log_loss': 0.9180818319320678, 'accuracy': 0.6615504121750159, 'macro_auc': 0.9187014781409765, 'seconds': 49}
+{'num_hops': 2, 'fanout': 5, 'num_estimators': 32, 'log_loss': 0.9167944550514221, 'accuracy': 0.6660671256454389, 'macro_auc': 0.9188748645106969, 'seconds': 166}
+{'num_hops': 2, 'fanout': 20, 'num_estimators': 8, 'log_loss': 0.9066278457641601, 'accuracy': 0.6648618534287526, 'macro_auc': 0.9184130958504907, 'seconds': 109}
+{'num_hops': 2, 'fanout': 20, 'num_estimators': 32, 'log_loss': 0.9040297508239746, 'accuracy': 0.6684749524413443, 'macro_auc': 0.9185675486085738, 'seconds': 405}
+
+5-fold CV on training rows, sorted by log loss (lower is better):
+ num_hops  fanout  num_estimators  log_loss  accuracy  macro_auc  seconds
+        1       5              32    0.8431    0.6896     0.9310       42
+        1       5               8    0.8462    0.6883     0.9302       12
+        2      20              32    0.9040    0.6685     0.9186      405
+        2      20               8    0.9066    0.6649     0.9184      109
+        2       5              32    0.9168    0.6661     0.9189      166
+        2       5               8    0.9181    0.6616     0.9187       49

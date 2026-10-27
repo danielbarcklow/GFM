@@ -1,0 +1,39 @@
+fold  0  auc=0.9869  rounds=120  depth=5  eta=0.183  (206s)
+fold  1  auc=0.9993  rounds=303  depth=9  eta=0.228  (452s)
+fold  2  auc=0.9960  rounds=29  depth=3  eta=0.205  (576s)
+fold  3  auc=0.9977  rounds=1857  depth=6  eta=0.031  (2235s)
+fold  4  auc=0.9956  rounds=1496  depth=9  eta=0.033  (4272s)
+fold  5  auc=0.9892  rounds=776  depth=1  eta=0.052  (5231s)
+fold  6  auc=0.9931  rounds=833  depth=6  eta=0.012  (7198s)
+fold  7  auc=1.0000  rounds=346  depth=1  eta=0.220  (7557s)
+fold  8  auc=0.9904  rounds=311  depth=1  eta=0.087  (8023s)
+fold  9  auc=1.0000  rounds=2000  depth=7  eta=0.016  (10100s)
+fold 10  auc=0.9974  rounds=468  depth=1  eta=0.089  (10705s)
+fold 11  auc=0.9961  rounds=225  depth=2  eta=0.053  (11080s)
+fold 12  auc=0.9960  rounds=433  depth=1  eta=0.050  (11844s)
+fold 13  auc=0.9970  rounds=225  depth=2  eta=0.141  (12549s)
+fold 14  auc=0.9873  rounds=721  depth=4  eta=0.037  (13587s)
+
+XGBoost (nested-CV tuned): per-fold results
+      roc_auc  accuracy  log_loss
+fold                             
+0      0.9869    0.9561    0.1333
+1      0.9993    0.9825    0.0352
+2      0.9960    0.9737    0.0757
+3      0.9977    0.9649    0.0700
+4      0.9956    0.9735    0.0699
+5      0.9892    0.9561    0.1279
+6      0.9931    0.9825    0.0873
+7      1.0000    0.9825    0.0367
+8      0.9904    0.9737    0.1017
+9      1.0000    0.9646    0.0718
+10     0.9974    0.9649    0.0706
+11     0.9961    0.9649    0.0744
+12     0.9960    0.9561    0.0761
+13     0.9970    0.9561    0.0850
+14     0.9873    0.9558    0.1624
+
+XGBoost (nested-CV tuned): mean ± std over 15 folds
+  roc_auc   0.9948 ± 0.0044
+  accuracy  0.9672 ± 0.0102
+  log_loss  0.0852 ± 0.0342

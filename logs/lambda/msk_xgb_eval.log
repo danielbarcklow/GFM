@@ -1,0 +1,4 @@
+tuned in 1982s: rounds=276
+{'objective': 'multi:softprob', 'num_class': 9, 'eval_metric': 'mlogloss', 'tree_method': 'hist', 'device': 'cuda', 'seed': 0, 'nthread': -1, 'eta': 0.0241, 'max_depth': 7, 'min_child_weight': 3.6887, 'subsample': 0.9655, 'colsample_bytree': 0.4782, 'gamma': 0.0, 'lambda': 0.0866, 'alpha': 0.0}
+
+XGBoost (100 trials) on stage-1 (368 rows): log_loss=0.7314  accuracy=0.7310  macro_auc=0.9382

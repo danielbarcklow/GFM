@@ -1,0 +1,2 @@
+fold 0  log_loss=0.8443  rounds=244  depth=7  eta=0.035  (1760s)
+fold 1  log_loss=0.8634  rounds=574  depth=6  eta=0.012  (5708s)

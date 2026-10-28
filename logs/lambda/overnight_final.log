@@ -1,0 +1,27 @@
+1. Label-shift adjustment on stage-1 (little shift expected):
+   Kumo fine-tuned  raw 0.6810  ->  adjusted 0.7614   (estimated mix: 0.25 0.09 0.03 0.16 0.09 0.06 0.30 0.00 0.02)
+   XGBoost          raw 0.7329  ->  adjusted 0.8044   (estimated mix: 0.27 0.10 0.03 0.15 0.08 0.06 0.31 0.00 0.02)
+/home/ubuntu/miniforge3/envs/gfm/lib/python3.11/site-packages/sdm/relational/join.py:73: RuntimeWarning: Falling back to a CPU-based join because cuDF is not installed. Install cuDF to enable faster CUDA-based joins without device synchronization. This warning will be suppressed for the remainder of this process.
+  warn_once(
+
+   training class mix:          0.17 0.14 0.03 0.21 0.07 0.08 0.29 0.01 0.01
+   Kumo pretrained  estimated stage-2 mix: 0.24 0.39 0.00 0.12 0.01 0.03 0.20 0.00 0.01
+   Kumo fine-tuned  estimated stage-2 mix: 0.18 0.31 0.01 0.11 0.03 0.03 0.29 0.03 0.01
+   XGBoost          estimated stage-2 mix: 0.21 0.22 0.00 0.12 0.02 0.04 0.38 0.00 0.01
+
+4. Stage-2 leaderboard set (125 labeled rows), log loss lower is better:
+   Leaderboard reference: 1st place 2.030, guessing 1/9 = 2.197
+          model        probabilities  log_loss  accuracy  macro_auc
+Kumo pretrained                  raw    3.4550     0.192     0.5243
+Kumo pretrained label-shift adjusted    8.4858     0.232     0.5092
+Kumo fine-tuned                  raw    3.2997     0.216     0.5349
+Kumo fine-tuned label-shift adjusted    2.8659     0.256     0.5207
+        XGBoost                  raw    3.3394     0.224     0.5374
+        XGBoost label-shift adjusted    6.1034     0.240     0.5205
+
+5. DIAGNOSTIC (uses stage-2 labels, not a valid result): best blend with uniform
+   Kumo pretrained  best weight on uniform 0.85  ->  log_loss 2.1682
+   Kumo fine-tuned  best weight on uniform 0.83  ->  log_loss 2.1618
+   XGBoost          best weight on uniform 0.83  ->  log_loss 2.1598
+
+Submission files (not uploaded): /home/ubuntu/GFM/data/msk/submissions

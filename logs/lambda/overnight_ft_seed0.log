@@ -32,3 +32,66 @@ Phase 1: fine-tune on 2656 rows, check on 665 held-out training rows (lr=1e-05)
   step  240  train loss=0.9764  (96s)
   step  250  train loss=1.0173  (100s)
   step  250  holdout log_loss=0.7852  accuracy=0.7083
+  step  260  train loss=0.9921  (106s)
+  step  270  train loss=0.8196  (109s)
+  step  280  train loss=1.0021  (113s)
+  step  290  train loss=1.1268  (117s)
+  step  300  train loss=0.9575  (121s)
+  step  300  holdout log_loss=0.7866  accuracy=0.7113
+  step  310  train loss=0.9065  (126s)
+  step  320  train loss=0.9861  (130s)
+  step  330  train loss=0.9205  (134s)
+  step  340  train loss=0.9340  (137s)
+  step  350  train loss=0.8322  (141s)
+  step  350  holdout log_loss=0.7885  accuracy=0.7098
+  step  360  train loss=0.9859  (147s)
+  step  370  train loss=0.8238  (151s)
+  step  380  train loss=0.8848  (154s)
+  step  390  train loss=0.8996  (158s)
+  step  400  train loss=0.8987  (162s)
+  step  400  holdout log_loss=0.7846  accuracy=0.7098
+  step  410  train loss=0.8860  (168s)
+  step  420  train loss=1.0045  (172s)
+  step  430  train loss=0.9218  (175s)
+  step  440  train loss=0.9652  (179s)
+  step  450  train loss=0.8135  (183s)
+  step  450  holdout log_loss=0.7845  accuracy=0.7038
+  step  460  train loss=0.9536  (189s)
+  step  470  train loss=0.9566  (193s)
+  step  480  train loss=0.9847  (197s)
+  step  490  train loss=0.8574  (200s)
+  step  500  train loss=0.9709  (204s)
+  step  500  holdout log_loss=0.7848  accuracy=0.7098
+  step  510  train loss=0.8750  (210s)
+  step  520  train loss=0.8879  (214s)
+  step  530  train loss=1.0022  (218s)
+  step  540  train loss=0.8841  (221s)
+  step  550  train loss=0.9356  (225s)
+  step  550  holdout log_loss=0.7875  accuracy=0.7053
+  step  560  train loss=0.7856  (231s)
+  step  570  train loss=0.8734  (235s)
+  step  580  train loss=0.9381  (238s)
+  step  590  train loss=1.0192  (242s)
+  step  600  train loss=0.8134  (246s)
+  step  600  holdout log_loss=0.7878  accuracy=0.7023
+Best: step 150 (holdout log_loss 0.7841; step 0 = pretrained 0.8148)
+
+Phase 2: fine-tune on all 3321 training rows for 150 steps
+  step   10  train loss=1.0330  (4s)
+  step   20  train loss=0.9147  (7s)
+  step   30  train loss=0.9469  (11s)
+  step   40  train loss=1.1219  (15s)
+  step   50  train loss=0.9798  (19s)
+  step   60  train loss=0.9906  (23s)
+  step   70  train loss=1.0735  (26s)
+  step   80  train loss=1.0278  (30s)
+  step   90  train loss=0.9824  (34s)
+  step  100  train loss=0.9163  (38s)
+  step  110  train loss=1.0524  (41s)
+  step  120  train loss=1.0786  (45s)
+  step  130  train loss=0.9545  (49s)
+  step  140  train loss=0.9300  (52s)
+  step  150  train loss=1.0752  (56s)
+
+Fine-tuned Kumo Relational on stage-1 (368 rows): log_loss=0.6810  accuracy=0.7283  macro_auc=0.9312
+Reference: pretrained Kumo 0.731, tuned XGBoost 0.731

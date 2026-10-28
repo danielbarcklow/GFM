@@ -1,2 +1,11 @@
 === 2026-10-28 00:00:52  start msk_rfm_finetune.py --seed 0 --out rfm_finetuned
 === 2026-10-28 00:00:52  start msk_xgb_eval.py 100 --device cpu --jobs 10
+=== 2026-10-28 00:06:08  done  msk_rfm_finetune.py --seed 0 --out rfm_finetuned -> logs/overnight_ft_seed0.log
+=== 2026-10-28 00:06:08  start msk_rfm_finetune.py --seed 1 --out rfm_finetuned_s1
+=== 2026-10-28 00:11:38  done  msk_rfm_finetune.py --seed 1 --out rfm_finetuned_s1 -> logs/overnight_ft_seed1.log
+=== 2026-10-28 00:11:38  start msk_rfm_finetune.py --seed 2 --out rfm_finetuned_s2
+=== 2026-10-28 00:18:59  done  msk_rfm_finetune.py --seed 2 --out rfm_finetuned_s2 -> logs/overnight_ft_seed2.log
+=== 2026-10-28 00:25:35  done  msk_xgb_eval.py 100 --device cpu --jobs 10 -> logs/overnight_xgb_eval.log
+=== 2026-10-28 00:25:35  start msk_final.py
+=== 2026-10-28 00:26:30  done  msk_final.py -> logs/overnight_final.log
+=== 2026-10-28 00:26:30  all done

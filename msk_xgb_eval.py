@@ -3,8 +3,9 @@
 #   tuning:          Optuna, scored by 5-fold CV log loss on the training rows only
 #   development set: 368 labeled stage-1 test rows, scored once with the tuned model
 #
-# Usage: python msk_xgb_eval.py [n_trials]   (default 100)
-import sys
+# Usage: python msk_xgb_eval.py [n_trials] [--device cpu] [--jobs 10]   (default 100 trials)
+import argparse
+import json
 import time
 
 import numpy as np
@@ -13,10 +14,16 @@ import xgboost as xgb
 import msk_xgb
 from msk_data import DATA_DIR, load_competition, score
 
-N_TRIALS = int(sys.argv[1]) if len(sys.argv) > 1 else 100
-
-
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("n_trials", nargs="?", type=int, default=100)
+    parser.add_argument("--device", choices=["cpu", "cuda"], help="default: cuda if available")
+    parser.add_argument("--jobs", type=int, help="trials run in parallel")
+    args = parser.parse_args()
+    N_TRIALS = args.n_trials
+    msk_xgb.DEVICE = args.device or msk_xgb.DEVICE
+    msk_xgb.PARALLEL_TRIALS = args.jobs or msk_xgb.PARALLEL_TRIALS
+
     variants, genes = load_competition()
     X = variants.merge(genes, on="gene_id", how="left").drop(
         columns=["variant_id", "gene_id", "Class", "split", "kaggle_id"]
@@ -31,6 +38,8 @@ def main():
     params, num_rounds = msk_xgb.tune(X[train], y_train)
     print(f"tuned in {time.time() - start:.0f}s: rounds={num_rounds}", flush=True)
     print({k: round(v, 4) if isinstance(v, float) else v for k, v in params.items()}, flush=True)
+
+    (DATA_DIR / "xgb_params.json").write_text(json.dumps({"params": params, "num_boost_round": num_rounds}))
 
     booster = xgb.train(params, xgb.DMatrix(X[train], label=y_train), num_boost_round=num_rounds)
     proba = booster.predict(xgb.DMatrix(X[dev]))

@@ -1,0 +1,20 @@
+Phase 1: fine-tune on 2656 rows, check on 665 held-out training rows (lr=1e-05)
+  step    0  holdout log_loss=0.8157  accuracy=0.6992
+  step   50  holdout log_loss=0.7949  accuracy=0.7098
+  step  100  holdout log_loss=0.7885  accuracy=0.7098
+  step  150  holdout log_loss=0.7861  accuracy=0.7158
+  step  200  holdout log_loss=0.7798  accuracy=0.7173
+  step  250  holdout log_loss=0.7854  accuracy=0.7098
+  step  300  holdout log_loss=0.7824  accuracy=0.7143
+  step  350  holdout log_loss=0.7812  accuracy=0.7128
+  step  400  holdout log_loss=0.7837  accuracy=0.7143
+  step  450  holdout log_loss=0.7842  accuracy=0.7143
+  step  500  holdout log_loss=0.7811  accuracy=0.7098
+  step  550  holdout log_loss=0.7812  accuracy=0.7128
+  step  600  holdout log_loss=0.7872  accuracy=0.7173
+Best: step 200 (holdout log_loss 0.7798; step 0 = pretrained 0.8157)
+
+Phase 2: fine-tune on all 3321 training rows for 200 steps
+
+Fine-tuned Kumo Relational on stage-1 (368 rows): log_loss=0.6830  accuracy=0.7228  macro_auc=0.9288
+Reference: pretrained Kumo 0.731, tuned XGBoost 0.731

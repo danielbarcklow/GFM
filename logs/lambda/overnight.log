@@ -1,0 +1,2 @@
+=== 2026-10-28 00:00:52  start msk_rfm_finetune.py --seed 0 --out rfm_finetuned
+=== 2026-10-28 00:00:52  start msk_xgb_eval.py 100 --device cpu --jobs 10

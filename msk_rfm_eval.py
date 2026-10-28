@@ -33,8 +33,12 @@ def to_table(df, ids):
     return TableTensor.from_pandas(df=df.reset_index(drop=True), stypes=stypes, device=DEVICE)
 
 
-def predict(model, variants, genes, context, query):
-    """Class probabilities (columns ordered as CLASSES) for `query` rows given labeled `context` rows."""
+def run_model(model, variants, genes, context, query, num_estimators=NUM_ESTIMATORS):
+    """Raw model output for boolean row masks: (class names, probability tensor).
+
+    Query rows come out in the order of `query`'s True positions. In training mode
+    the probabilities carry gradients.
+    """
     features = variants.drop(columns=["Class", "split", "kaggle_id"])
     genes_table = to_table(genes, ids={"gene_id"})
 
@@ -56,10 +60,15 @@ def predict(model, variants, genes, context, query):
         x_query=to_table(variants.loc[query, ["variant_id"]], ids={"variant_id"}),
         related_context_tables=related(context),
         related_query_tables=related(query),
-        num_estimators=NUM_ESTIMATORS,
+        num_estimators=num_estimators,
     )
-    names = list(out.columns[sdm.Stype.numerical])
-    probs = out.numerical.cpu().numpy()
+    return list(out.columns[sdm.Stype.numerical]), out.numerical
+
+
+def predict(model, variants, genes, context, query):
+    """Class probabilities (columns ordered as CLASSES) for `query` rows given labeled `context` rows."""
+    names, probs = run_model(model, variants, genes, context, query)
+    probs = probs.detach().cpu().numpy()
     return np.stack([probs[:, names.index(str(c))] for c in CLASSES], axis=1)
 
 

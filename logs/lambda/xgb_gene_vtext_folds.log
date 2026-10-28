@@ -1,0 +1,17 @@
+=== 2026-10-28 05:43:03  5 folds x 6 parallel trials, 100 trials each
+=== 2026-10-28 07:03:57  folds finished
+
+XGBoost (nested-CV tuned, 5 folds): per-fold results
+      log_loss  accuracy  macro_auc
+fold                               
+0       1.4756    0.5323     0.7513
+1       1.6053    0.3923     0.7328
+2       1.4381    0.5103     0.7778
+3       1.4621    0.5231     0.7033
+4       1.4044    0.4854     0.7818
+
+XGBoost (nested-CV tuned, 5 folds): mean ± std over 5 folds
+  log_loss  1.4771 ± 0.0766
+  accuracy  0.4887 ± 0.0567
+  macro_auc 0.7494 ± 0.0326
+=== 2026-10-28 07:04:00  all done

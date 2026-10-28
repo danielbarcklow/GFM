@@ -1,3 +1,5 @@
 fold 0  log_loss=0.8443  rounds=244  depth=7  eta=0.035  (1760s)
 fold 1  log_loss=0.8634  rounds=574  depth=6  eta=0.012  (5708s)
 fold 2  log_loss=0.8928  rounds=370  depth=6  eta=0.015  (8095s)
+Terminated
+ERROR conda.cli.main_run:execute(149): `conda run python -u msk_xgb.py 100` failed. (See above for error)

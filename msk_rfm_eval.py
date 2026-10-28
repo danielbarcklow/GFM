@@ -65,9 +65,9 @@ def run_model(model, variants, genes, context, query, num_estimators=NUM_ESTIMAT
     return list(out.columns[sdm.Stype.numerical]), out.numerical
 
 
-def predict(model, variants, genes, context, query):
+def predict(model, variants, genes, context, query, num_estimators=NUM_ESTIMATORS):
     """Class probabilities (columns ordered as CLASSES) for `query` rows given labeled `context` rows."""
-    names, probs = run_model(model, variants, genes, context, query)
+    names, probs = run_model(model, variants, genes, context, query, num_estimators=num_estimators)
     probs = probs.detach().cpu().numpy()
     return np.stack([probs[:, names.index(str(c))] for c in CLASSES], axis=1)
 

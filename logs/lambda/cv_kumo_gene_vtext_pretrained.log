@@ -1,0 +1,8 @@
+/home/ubuntu/miniforge3/envs/gfm/lib/python3.11/site-packages/sdm/relational/join.py:73: RuntimeWarning: Falling back to a CPU-based join because cuDF is not installed. Install cuDF to enable faster CUDA-based joins without device synchronization. This warning will be suppressed for the remainder of this process.
+  warn_once(
+fold 0  log_loss=1.3723  (4s)
+fold 1  log_loss=1.4980  (6s)
+fold 2  log_loss=1.4191  (9s)
+fold 3  log_loss=1.3336  (11s)
+fold 4  log_loss=1.4945  (14s)
+{"name": "gene_vtext_pretrained", "lr": 1e-05, "steps": 0, "context": 1024, "estimators": 8, "seeds": 1, "label_features": false, "variant_text": true, "gene_folds": true, "log_loss": 1.4234972602441576, "accuracy": 0.47466023817155617, "macro_auc": 0.7581786102794309, "log_loss_std": 0.07298711902669543, "fold_log_loss": [1.3723, 1.498, 1.4191, 1.3336, 1.4945], "minutes": 0.2}

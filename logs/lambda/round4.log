@@ -1,0 +1,9 @@
+=== 2026-10-28 04:07:56  start vtext_pretrained
+=== 2026-10-28 04:08:23  done  vtext_pretrained
+=== 2026-10-28 04:08:23  start vtext_ft400_lr3e-6
+=== 2026-10-28 04:30:47  done  vtext_ft400_lr3e-6
+=== 2026-10-28 04:30:47  start gene_vtext_pretrained
+=== 2026-10-28 04:31:19  done  gene_vtext_pretrained
+=== 2026-10-28 04:31:19  start gene_vtext_ft400_lr3e-6
+=== 2026-10-28 04:55:27  done  gene_vtext_ft400_lr3e-6
+=== 2026-10-28 07:04:00  all done

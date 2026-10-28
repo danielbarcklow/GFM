@@ -1,0 +1,11 @@
+=== 2026-10-28 03:21:19  start gene_pretrained
+=== 2026-10-28 03:21:40  done  gene_pretrained
+=== 2026-10-28 03:21:40  start gene_ft200
+=== 2026-10-28 03:30:13  done  gene_ft200
+=== 2026-10-28 03:30:13  start gene_ft400_lr3e-6
+=== 2026-10-28 03:47:56  done  gene_ft400_lr3e-6
+=== 2026-10-28 03:47:56  start oof_pretrained
+=== 2026-10-28 03:48:21  done  oof_pretrained
+=== 2026-10-28 03:48:21  start oof_ft400_lr3e-6
+=== 2026-10-28 04:00:37  done  oof_ft400_lr3e-6
+=== 2026-10-28 04:07:25  all done

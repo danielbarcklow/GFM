@@ -16,7 +16,7 @@ import pandas as pd
 from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score, log_loss, roc_auc_score
-from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.model_selection import RepeatedStratifiedKFold, StratifiedGroupKFold
 
 DATA_DIR = Path(__file__).parent / "data" / "msk"
 SEED = 0
@@ -148,6 +148,13 @@ def folds(y):
     return list(cv.split(np.zeros(len(y)), y))
 
 
+def gene_folds(y, genes):
+    """K-fold with every gene's rows in one fold: tests on genes never seen in training,
+    a stand-in for the shift between training and stage-2 rows."""
+    cv = StratifiedGroupKFold(n_splits=N_SPLITS, shuffle=True, random_state=SEED)
+    return list(cv.split(np.zeros(len(y)), y, groups=genes))
+
+
 def score(y_true, proba):
     """Metrics from an (n, 9) probability matrix with columns ordered as CLASSES."""
     proba = np.clip(proba, 1e-15, 1)
@@ -155,7 +162,9 @@ def score(y_true, proba):
     return {
         "log_loss": log_loss(y_true, proba, labels=CLASSES),
         "accuracy": accuracy_score(y_true, np.asarray(CLASSES)[proba.argmax(axis=1)]),
-        "macro_auc": roc_auc_score(y_true, proba, multi_class="ovr", average="macro", labels=CLASSES),
+        # one-vs-rest AUC averaged over the classes present (a gene-held-out fold can lack one)
+        "macro_auc": float(np.mean([roc_auc_score(np.asarray(y_true) == c, proba[:, i])
+                                    for i, c in enumerate(CLASSES) if (np.asarray(y_true) == c).any()])),
     }
 
 

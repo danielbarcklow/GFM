@@ -1,0 +1,7 @@
+=== 2026-10-28 01:41:05  start label2_pretrained
+=== 2026-10-28 01:41:29  done  label2_pretrained
+=== 2026-10-28 01:41:29  start label2_ft200
+=== 2026-10-28 01:51:40  done  label2_ft200
+=== 2026-10-28 01:51:40  start label2_ft400_lr3e-6
+=== 2026-10-28 02:08:23  done  label2_ft400_lr3e-6
+=== 2026-10-28 03:20:27  all done
